@@ -3,6 +3,7 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const app = express();
+const path = require("path");
 
 // app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(bodyParser.json());
@@ -24,6 +25,12 @@ app.use(express.json()); //converting data into json format and this is also a m
 app.use(require("./router/auth")); //this is a middleWare
 
 const PORT = process.env.PORT;
+
+app.use(express.static(path.join(__dirname, "./client/build")));
+
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 // const middleware = (req, res, next) => {
 //   console.log("MiddleWare is working...");
