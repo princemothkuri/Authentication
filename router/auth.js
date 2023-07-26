@@ -8,10 +8,10 @@ const ContactUs = require("../models/contactSchema");
 const authenticate = require("../middleware/authenticate");
 const nodemailer = require("nodemailer");
 
-router.get("/", (req, res) => {
-  res.cookie("test", "prince");
-  res.send("home page router");
-});
+// router.get("/", (req, res) => {
+//   res.cookie("test", "prince");
+//   res.send("home page router");
+// });
 
 // -------------Login page using async method------------------------
 router.post("/login", async (req, res) => {
