@@ -82,7 +82,7 @@ router.post("/register", async (req, res) => {
     global.vOtp = Math.floor(Math.random() * 9000 + 1000);
 
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
+      host: "smtp.ethereal.email",
       port: process.env.EMAIL_PORT,
       secure: process.env.SECURE,
       auth: {
